@@ -1,0 +1,28 @@
+import os
+def find_winner(bidder_details):
+    highest_bid=0
+    winner=""
+    for bidder in bidder_details:
+        bidder_price=bidder_details[bidder]
+        if bidder_price>highest_bid:
+            highest_bid=bidder_price
+            winner=bidder
+    print(f"The winner is {winner} with the bid of {highest_bid} ")
+
+applied_bidder={}
+auction=True
+while auction is True:
+    name=input("Enter your name: ")
+    amount=int(input("Enter your bid price: "))
+    applied_bidder[name]=amount
+    new_user=input("Are you continue?(Yes/No): ").lower()
+    if new_user=="yes":
+        auction=True
+        os.system('cls')
+    else:
+        auction=False
+        find_winner(applied_bidder)
+
+
+
+
