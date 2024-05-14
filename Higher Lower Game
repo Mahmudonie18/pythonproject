@@ -1,0 +1,56 @@
+import random
+import os
+footballer=[{"name":"Messi",
+             "follower":5689000},
+            {"name":"Ronaldo",
+            "follower": 8549654,},
+            {"name":"Neymer",
+            "follower":9858563},
+            {"name":"Martinez",
+            "follower":10252563
+}]
+repeat=True
+while repeat:
+    point = 0
+    name_1=random.choice(footballer)
+    name_2=random.choice(footballer)
+    same=True
+    while same:
+        if name_1==name_2:
+            name_2=random.choice(footballer)
+        else:
+            same=False
+    def display_name(name_1,name_2):
+        first_name=name_1["name"]
+        second_name=name_2["name"]
+        print(f"Component 1: {first_name}")
+        print(f"Component 2: {second_name}")
+    display_name(name_1,name_2)
+    follower_1=name_1["follower"]
+    follower_2=name_2["follower"]
+    guess=int(input("Enter your choice (1 or 2)?: "))
+    if guess==1:
+        if follower_1>follower_2:
+            point+=1
+            global point
+            os.system('cls')
+            repeat=True
+        else:
+            print("you Lose")
+            repeat = False
+    elif guess==2:
+        if follower_2 > follower_1:
+            point += 1
+            global point
+            repeat = True
+        else:
+            print("you Lose")
+            repeat = False
+    
+
+
+
+
+
+
+
